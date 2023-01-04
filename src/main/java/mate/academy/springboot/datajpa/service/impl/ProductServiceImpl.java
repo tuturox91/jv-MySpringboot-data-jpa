@@ -1,12 +1,11 @@
 package mate.academy.springboot.datajpa.service.impl;
 
+import java.math.BigDecimal;
+import java.util.List;
 import mate.academy.springboot.datajpa.model.Product;
 import mate.academy.springboot.datajpa.repository.ProductRepository;
 import mate.academy.springboot.datajpa.service.ProductService;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -51,6 +50,4 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAllByCategory_NameIn(List<String> categoryName) {
         return productRepository.findAllByCategory_NameIn(categoryName);
     }
-
-
 }

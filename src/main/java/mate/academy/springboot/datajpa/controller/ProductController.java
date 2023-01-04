@@ -1,5 +1,8 @@
 package mate.academy.springboot.datajpa.controller;
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
 import mate.academy.springboot.datajpa.dto.ProductRequestDto;
 import mate.academy.springboot.datajpa.dto.ProductResponseDto;
 import mate.academy.springboot.datajpa.dto.mapper.DtoRequestMapper;
@@ -15,10 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/products")
@@ -37,7 +36,6 @@ public class ProductController {
         this.requestMapper = requestMapper;
     }
 
-
     @PostMapping
     public ProductResponseDto addProduct(@RequestBody ProductRequestDto requestDto) {
         return responseMapper.toResponseDto(
@@ -55,7 +53,8 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ProductResponseDto update(@PathVariable Long id, @RequestBody ProductRequestDto requestDto) {
+    public ProductResponseDto update(@PathVariable Long id,
+                                     @RequestBody ProductRequestDto requestDto) {
         Product product = requestMapper.toModel(requestDto);
         product.setId(id);
         productService.update(product);
@@ -63,7 +62,8 @@ public class ProductController {
     }
 
     @GetMapping("/by-price")
-    public List<ProductResponseDto> getAllByPrice(@RequestParam BigDecimal from, @RequestParam BigDecimal to) {
+    public List<ProductResponseDto> getAllByPrice(@RequestParam BigDecimal from,
+                                                  @RequestParam BigDecimal to) {
         return productService.getProductsWherePriceBetween(from, to)
                 .stream()
                 .map(responseMapper::toResponseDto).collect(Collectors.toList());

@@ -32,7 +32,6 @@ public class CategoryController {
         this.requestMapper = requestMapper;
     }
 
-
     @PostMapping
     public CategoryResponseDto save(@RequestBody CategoryRequestDto requestDto) {
         return responseMapper.toResponseDto(
@@ -50,7 +49,9 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    public CategoryResponseDto update(@PathVariable Long id, @RequestBody CategoryRequestDto requestDto) {
+    public CategoryResponseDto update(
+            @PathVariable Long id,
+            @RequestBody CategoryRequestDto requestDto) {
         Category category = requestMapper.toModel(requestDto);
         category.setId(id);
         categoryService.save(category);
