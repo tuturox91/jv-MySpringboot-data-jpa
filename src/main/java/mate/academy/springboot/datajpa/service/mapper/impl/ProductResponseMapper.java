@@ -1,7 +1,7 @@
-package mate.academy.springboot.datajpa.dto.mapper.impl;
+package mate.academy.springboot.datajpa.service.mapper.impl;
 
 import mate.academy.springboot.datajpa.dto.ProductResponseDto;
-import mate.academy.springboot.datajpa.dto.mapper.DtoResponseMapper;
+import mate.academy.springboot.datajpa.service.mapper.DtoResponseMapper;
 import mate.academy.springboot.datajpa.model.Product;
 import org.springframework.stereotype.Component;
 

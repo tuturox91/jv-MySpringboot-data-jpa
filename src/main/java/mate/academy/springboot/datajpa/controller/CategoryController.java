@@ -2,8 +2,8 @@ package mate.academy.springboot.datajpa.controller;
 
 import mate.academy.springboot.datajpa.dto.CategoryRequestDto;
 import mate.academy.springboot.datajpa.dto.CategoryResponseDto;
-import mate.academy.springboot.datajpa.dto.mapper.DtoRequestMapper;
-import mate.academy.springboot.datajpa.dto.mapper.DtoResponseMapper;
+import mate.academy.springboot.datajpa.service.mapper.DtoRequestMapper;
+import mate.academy.springboot.datajpa.service.mapper.DtoResponseMapper;
 import mate.academy.springboot.datajpa.model.Category;
 import mate.academy.springboot.datajpa.service.CategoryService;
 import org.springframework.web.bind.annotation.DeleteMapping;
